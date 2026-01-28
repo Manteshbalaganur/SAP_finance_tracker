@@ -1,236 +1,170 @@
+# 💰 Vault Finance Bot - SAP Marathon Project
 
-# Project Name
+A finance-only chatbot that answers financial questions. It strictly filters non-finance queries and provides personalized financial advice.
 
-Brief description of what your project does.
+## 🏗️ Project Structure
+FINANCIAL/
+├── .venv/ # Virtual environment
+├── src/
+│ └── conversational_model/
+│ └── llm.py # Main chatbot with Gemini API
+├── .env # Environment variables
+├── requirements.txt # Dependencies
+└── README.md # This file
 
-## 🔥 Features
+text
 
-- Feature 1
-- Feature 2
-- Feature 3
+## ✨ Features
 
-## 🚀 Demo
+- **Finance-Only Responses**: Strictly answers only finance-related questions
+- **Google Gemini Integration**: Uses state-of-the-art AI for responses
+- **Simple Terminal Interface**: Easy to use command-line interface
+- **Error Handling**: Graceful handling of API errors
+- **Multi-Model Fallback**: Tries different Gemini models if one fails
 
-[Live Demo Link](your-link-here)
+## 🚀 Quick Start
 
-## 📸 Screenshots
+### Prerequisites
+- Python 3.8+
+- Google Gemini API key
 
-![App Screenshot](screenshot-link)
+### Installation
 
-## 🏗️ Architecture
-
-[Architecture Diagram](diagram-link)
-
-## 🛠️ Tech Stack
-
-**Client:** React, TypeScript, Tailwind CSS
-
-**Server:** FastAPI, Python
-
-**Database:** PostgreSQL
-
-**AI/ML:** Google Gemini API
-
-**DevOps:** Docker, GitHub Actions
-
-## 📦 Installation
-
-Clone the project
-
+1. **Clone and navigate**
 ```bash
-  git clone https://github.com/username/repo-name.git
-  cd repo-name
-
-  Install dependencies
+cd FINANCIAL
+Create virtual environment
 
 bash
-  pip install -r requirements.txt
-Setup environment variables
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# Linux/Mac
+source .venv/bin/activate
+Install dependencies
 
 bash
-  cp .env.example .env
-  # Edit .env with your values
-Run the application
+pip install google-genai python-dotenv
+Setup API key
+Create .env file:
+
+env
+GOOGLE_API_KEY=your_api_key_here
+Run the bot
 
 bash
-  python app.py
+python src/conversational_model/llm.py
+📖 Usage
+Basic Commands
+text
+Type your finance question
+Type 'quit' or 'exit' to end
+Example Conversations
+text
+You: How to save money as a student?
+Bot: Start by tracking expenses, create a budget...
+
+You: Should I invest in stocks?
+Bot: Consider your risk tolerance...
+
+You: What's the weather?
+Bot: I only answer finance questions.
 ⚙️ Environment Variables
-To run this project, you will need to add the following environment variables to your .env file:
+Variable	Description	Required
+GOOGLE_API_KEY	Google Gemini API key	Yes
+🐛 Troubleshooting
+Common Issues
+1. ModuleNotFoundError
 
-GOOGLE_API_KEY - Your Google Gemini API key
-
-DATABASE_URL - Your database connection string
-
-SECRET_KEY - Your secret key
-
-📖 Usage/Examples
-python
-from your_module import YourClass
-
-obj = YourClass()
-result = obj.method()
 bash
-python script.py --input data.csv --output results.json
+pip install google-genai python-dotenv
+2. API Key Error
+
+Check .env file exists
+
+Verify API key is valid
+
+Get new key from: https://makersuite.google.com/app/apikey
+
+3. Quota Exceeded
+
+Wait 1 minute before retrying
+
+Check your Google Cloud quota
+
 🧪 Running Tests
-To run tests, run the following command:
+Currently manual testing:
 
 bash
-  pytest tests/
-For coverage report:
-
-bash
-  pytest --cov=src tests/
-🚢 Deployment
-Docker Deployment
-Build the image:
-
-bash
-docker build -t your-app .
-Run the container:
-
-bash
-docker run -p 8000:8000 your-app
-Cloud Deployment
-[Deployment instructions for AWS/GCP/Azure]
-
-🗺️ Roadmap
-Basic MVP
-
-Multi-language support
-
-Advanced analytics
-
-Mobile app
-
-API version 2.0
-
+# Test finance detection
+python -c "from src.conversational_model.llm import SimpleFinanceBot; bot=SimpleFinanceBot(); print('Test passed')"
 🤝 Contributing
-Contributions are always welcome!
+Fork the repository
 
-See contributing.md for ways to get started.
+Create your feature branch (git checkout -b feature/AmazingFeature)
 
-Please adhere to this project's code_of_conduct.md.
+Commit changes (git commit -m 'Add AmazingFeature')
+
+Push to branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
 
 📄 License
-This project is licensed under the MIT License.
-
-🙏 Acknowledgements
-Google Gemini API
-
-FastAPI
-
-Awesome Project
+This project is created for SAP Marathon.
 
 👥 Authors
-@yourusername
+@Mahantesh - Developer
 
-@coauthor
+🙏 Acknowledgements
+Google Gemini API for AI capabilities
+
+SAP for organizing the marathon
+
+Python community for amazing libraries
 
 🔗 Links
-https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white
-https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
-https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white
+Repository: https://github.com/yourusername/FINANCIAL
 
-📚 Related Projects
-Related Project 1
+SAP Marathon: SAP TechEd
 
-Related Project 2
+🛠️ Tech Stack
+Language: Python 3.8+
 
-Related Project 3
+AI API: Google Gemini
+
+Environment: Virtual Environment
+
+Dependency Management: pip
+
+📈 Roadmap
+Add CSV file support
+
+Multi-language responses
+
+Web interface
+
+Database integration
+
+Advanced financial analysis
 
 ❓ FAQ
-Question 1?
-Answer 1
+Q: How do I get an API key?
+A: Visit https://makersuite.google.com/app/apikey and create a free API key.
 
-Question 2?
-Answer 2
+Q: Why won't it answer non-finance questions?
+A: By design - it's a specialized finance-only bot for the SAP Marathon.
 
-📊 Optimizations
-Optimized database queries
-
-Implemented caching
-
-Reduced bundle size
-
-Improved API response time
+Q: Can I add more features?
+A: Yes! Check the roadmap section for ideas.
 
 💬 Feedback
-If you have any feedback, please reach out at your-email@example.com
-
-⚡ Lessons Learned
-What did you learn while building this project?
+If you have any feedback, please reach out via GitHub issues.
 
 🆘 Support
-For support, email your-email@example.com or join our Slack channel.
+For support, check the troubleshooting section or create a GitHub issue.
 
-🎨 Color Reference
-Color	Hex
-Primary	#2563eb
-Secondary	#7c3aed
-Accent	#f59e0b
-📝 Appendix
-Any additional information goes here.
+Built with ❤️ for SAP Marathon 2024
 
-📋 API Reference
-Authentication
-http
-POST /api/auth/login
-Parameter	Type	Description
-username	string	Required
-password	string	Required
-Get Items
-http
-GET /api/items
-Returns all items
+text
 
-🏆 Badges
-Add badges from somewhere like: shields.io
-
-https://img.shields.io/badge/License-MIT-green.svg
-https://img.shields.io/badge/License-GPL%2520v3-yellow.svg
-https://img.shields.io/badge/license-AGPL-blue.svg
-
-👤 Github Profile - About Me
-I'm a developer passionate about building cool stuff!
-
-👋 Github Profile - Introduction
-Hi! I'm [Your Name], a [Your Profession] from [Your Location].
-
-🔗 Github Profile - Links
-Portfolio: your-portfolio.com
-
-LinkedIn: linkedin.com/in/yourname
-
-Twitter: @yourhandle
-
-🎯 Github Profile - Skills
-https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
-https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white
-https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white
-
-📌 Github Profile - Other
-🌱 I'm currently learning [Technology]
-
-👯 I'm looking to collaborate on [Project Types]
-
-💬 Ask me about [Your Expertise]
-
-📫 How to reach me: [Contact Info]
-
-⚡ Fun fact: [Interesting Fact]
-
-📈 Used By
-This project is used by the following companies:
-
-Company 1
-
-Company 2
-
-Company 3
-
-🏢 Logo
-https://logo-url-here
-
-**Copy-paste this template and fill in your details. All sections you asked for are included!**
-
-
+This is specifically for YOUR project with YOUR structure. Just copy-paste and fill in your GitHub username!
